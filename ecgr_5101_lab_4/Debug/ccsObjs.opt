@@ -1,0 +1,1 @@
+"./DIN.obj" "./DOUT.obj" "./PWM.obj" "./UART.obj" "./blink.obj" "./common.obj" "../lnk_msp430g2553.cmd" -llibc.a 
