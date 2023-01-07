@@ -1,0 +1,1 @@
+"./DIN.obj" "./DOUT.obj" "./PWM.obj" "./UART.obj" "./common.obj" "./mainLab06Msp.obj" "../lnk_msp430g2553.cmd" -llibc.a 
