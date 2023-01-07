@@ -1,0 +1,480 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.2                     
+******************************************************************************
+>> Linked Wed Dec  8 14:54:37 2021
+
+OUTPUT FILE NAME:   <ecgr_5101_lab_9.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001bf9
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  0000284c  0003d7b4  R  X
+  SRAM                  20000000   00008000  000002ad  00007d53  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002850   00002850    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00001d3c   00001d3c    r-x .text
+  00001fa8    00001fa8    00000844   00000844    r-- .const
+  000027f0    000027f0    00000060   00000060    r-- .cinit
+20000000    20000000    000002b0   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000000a1   00000000    rw- .data
+  200002a4    200002a4    0000000c   00000000    rw- .bss
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00001d3c     
+                  0000026c    0000061e     mainLab09.obj (.text:displayScore)
+                  0000088a    00000002     startup_ccs.obj (.text:FaultISR)
+                  0000088c    00000314     mainLab09.obj (.text:updateBallLocation)
+                  00000ba0    00000170     mainLab09.obj (.text:intializePorts)
+                  00000d10    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00000e7c    0000013c     ST7735.obj (.text:commonInit)
+                  00000fb8    00000118     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  000010d0    00000100     ST7735.obj (.text:ST7735_DrawBitmap)
+                  000011d0    000000f8     mainLab09.obj (.text:main)
+                  000012c8    000000f4     driverlib.lib : sysctl.obj (.text:SysCtlClockSet)
+                  000013bc    000000d4     mainLab09.obj (.text:updatePaddleLocation)
+                  00001490    000000b4     ST7735.obj (.text:ST7735_DrawCharS)
+                  00001544    000000a0     mainLab09.obj (.text:resetButton)
+                  000015e4    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001680    00000080     ST7735.obj (.text:ST7735_FillRect)
+                  00001700    0000007c     ST7735.obj (.text:ST7735_InitR)
+                  0000177c    0000007a     driverlib.lib : adc.obj (.text:ADCSequenceStepConfigure)
+                  000017f6    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  000017f8    0000006c     ST7735.obj (.text:setAddrWindow)
+                  00001864    00000068     PLL.obj (.text:PLL_Init)
+                  000018cc    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001934    0000005c     mainLab09.obj (.text:adcSampleY)
+                  00001990    00000054     ST7735.obj (.text:commandList)
+                  000019e4    0000004e     driverlib.lib : adc.obj (.text:ADCSequenceConfigure)
+                  00001a32    00000002     startup_ccs.obj (.text:NmiSR)
+                  00001a34    0000004c     driverlib.lib : gpio.obj (.text:GPIOPinConfigure)
+                  00001a80    00000046                   : uart.obj (.text:UARTConfigSetExpClk)
+                  00001ac6    00000002     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.c.obj (.text:_nop)
+                  00001ac8    00000044                                   : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001b0c    00000040     ST7735.obj (.text:ST7735_DrawPixel)
+                  00001b4c    00000040     mainLab09.obj (.text:UARTRx)
+                  00001b8c    00000038     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReady)
+                  00001bc4    00000034                   : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001bf8    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001c2c    00000034                                   : rand.c.obj (.text:rand)
+                  00001c60    0000002e     driverlib.lib : adc.obj (.text:ADCIntStatus)
+                  00001c8e    0000002c                   : gpio.obj (.text:GPIODirModeSet)
+                  00001cba    00000002     --HOLE-- [fill = 0]
+                  00001cbc    00000024     ST7735.obj (.text:ST7735_FillScreen)
+                  00001ce0    00000024     mainLab09.obj (.text:buzzer)
+                  00001d04    00000024     rtsv7M4_T_le_v4SPD16_eabi.lib : rand.c.obj (.text:srand)
+                  00001d28    00000024     ST7735.obj (.text:writecommand)
+                  00001d4c    00000022     ST7735.obj (.text:Delay1ms)
+                  00001d6e    00000022     mainLab09.obj (.text:delayWait10ms)
+                  00001d90    00000020     driverlib.lib : uart.obj (.text:UARTDisable)
+                  00001db0    0000001e                   : adc.obj (.text:ADCSequenceDataGet)
+                  00001dce    00000002     --HOLE-- [fill = 0]
+                  00001dd0    0000001c     ST7735.obj (.text:ST7735_SetCursor)
+                  00001dec    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001e08    0000001c     ST7735.obj (.text:writedata)
+                  00001e24    0000001a     driverlib.lib : gpio.obj (.text:GPIOPinTypeGPIOOutput)
+                  00001e3e    0000001a     ST7735.obj (.text:ST7735_Color565)
+                  00001e58    00000018     driverlib.lib : adc.obj (.text:ADCProcessorTrigger)
+                  00001e70    00000018     mainLab09.obj (.text:circle)
+                  00001e88    00000018     mainLab09.obj (.text:paddle)
+                  00001ea0    00000016     driverlib.lib : gpio.obj (.text:GPIOPinTypeADC)
+                  00001eb6    00000016                   : gpio.obj (.text:GPIOPinTypeGPIOInput)
+                  00001ecc    00000016                   : gpio.obj (.text:GPIOPinTypeUART)
+                  00001ee2    00000014                   : uart.obj (.text:UARTEnable)
+                  00001ef6    00000002     --HOLE-- [fill = 0]
+                  00001ef8    00000014     mainLab09.obj (.text:UARTTx)
+                  00001f0c    00000012     ST7735.obj (.text:pushColor)
+                  00001f1e    00000002     --HOLE-- [fill = 0]
+                  00001f20    00000010     driverlib.lib : fpu.obj (.text:FPUEnable)
+                  00001f30    00000010                   : fpu.obj (.text:FPULazyStackingEnable)
+                  00001f40    0000000e                   : adc.obj (.text:ADCSequenceDisable)
+                  00001f4e    0000000e                   : adc.obj (.text:ADCSequenceEnable)
+                  00001f5c    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001f6a    0000000a     driverlib.lib : adc.obj (.text:ADCIntClear)
+                  00001f74    0000000a                   : uart.obj (.text:UARTCharGet)
+                  00001f7e    0000000a                   : uart.obj (.text:UARTCharPut)
+                  00001f88    00000006                   : gpio.obj (.text:GPIOPinRead)
+                  00001f8e    00000006                   : gpio.obj (.text:GPIOPinWrite)
+                  00001f94    00000006     startup_ccs.obj (.text:ResetISR)
+                  00001f9a    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00001fa0    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001fa4    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001fa8    00000844     
+                  00001fa8    000004fb     ST7735.obj (.const:.string:Font)
+                  000024a3    00000001     --HOLE-- [fill = 0]
+                  000024a4    00000120     mainLab09.obj (.const:Circle_Dia_3)
+                  000025c4    000000aa     mainLab09.obj (.const:Paddle)
+                  0000266e    00000002     --HOLE-- [fill = 0]
+                  00002670    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00002700    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  0000276c    0000003b     ST7735.obj (.const:.string:Rcmd1)
+                  000027a7    0000002b     ST7735.obj (.const:.string:Rcmd3)
+                  000027d2    0000000d     ST7735.obj (.const:.string:Rcmd2green)
+                  000027df    0000000d     ST7735.obj (.const:.string:Rcmd2red)
+
+.cinit     0    000027f0    00000060     
+                  000027f0    00000038     (.cinit..data.load) [load image, compression = lzss]
+                  00002828    0000000c     (__TI_handler_table)
+                  00002834    00000004     --HOLE-- [fill = 0]
+                  00002838    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002840    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.data      0    20000200    000000a1     UNINITIALIZED
+                  20000200    00000060     mainLab09.obj (.data)
+                  20000260    00000020     mainLab09.obj (.data:uin32ADC0Value)
+                  20000280    00000014     ST7735.obj (.data)
+                  20000294    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.c.obj (.data:$O1$$)
+                  2000029c    00000004                                   : rand.c.obj (.data)
+                  200002a0    00000001     mainLab09.obj (.data:TX_BUFFER)
+
+.bss       0    200002a4    0000000c     UNINITIALIZED
+                  200002a4    00000004     ST7735.obj (.bss)
+                  200002a8    00000004     (.common:baud)
+                  200002ac    00000004     (.common:clk)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+.binit     0    00000000    00000000     
+
+MODULE SUMMARY
+
+       Module                       code   ro data   rw data
+       ------                       ----   -------   -------
+    .\
+       mainLab09.obj                3636   458       137    
+       ST7735.obj                   1466   1403      24     
+       startup_ccs.obj              12     620       0      
+       PLL.obj                      104    0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       5218   2481      161    
+                                                            
+    C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                   638    108       0      
+       gpio.obj                     588    144       0      
+       adc.obj                      338    0         0      
+       uart.obj                     142    0         0      
+       fpu.obj                      32     0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       1738   252       0      
+                                                            
+    C:\ti\ccs1020\ccs\tools\compiler\ti-cgt-arm_20.2.2.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj            156    0         0      
+       copy_decompress_lzss.c.obj   104    0         0      
+       rand.c.obj                   88     0         4      
+       autoinit.c.obj               68     0         0      
+       boot_cortex_m.c.obj          52     0         0      
+       copy_zero_init.c.obj         28     0         0      
+       copy_decompress_none.c.obj   14     0         0      
+       _lock.c.obj                  2      0         8      
+       exit.c.obj                   4      0         0      
+       pre_init.c.obj               4      0         0      
+    +--+----------------------------+------+---------+---------+
+       Total:                       520    0         12     
+                                                            
+       Stack:                       0      0         512    
+       Linker Generated:            0      92        0      
+    +--+----------------------------+------+---------+---------+
+       Grand Total:                 7476   2825      685    
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002840 records: 2, size/record: 8, table size: 16
+	.data: load addr=000027f0, load size=00000038 bytes, run addr=20000200, run size=000000a1 bytes, compression=lzss
+	.bss: load addr=00002838, load size=00000008 bytes, run addr=200002a4, run size=0000000c bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002828 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001f6b  ADCIntClear                   
+00001c61  ADCIntStatus                  
+00001e59  ADCProcessorTrigger           
+000019e5  ADCSequenceConfigure          
+00001db1  ADCSequenceDataGet            
+00001f41  ADCSequenceDisable            
+00001f4f  ADCSequenceEnable             
+0000177d  ADCSequenceStepConfigure      
+00001fa5  C$$EXIT                       
+2000025c  CPU_FREQ                      
+000024a4  Circle_Dia_3                  
+00001d4d  Delay1ms                      
+00001f21  FPUEnable                     
+00001f31  FPULazyStackingEnable         
+00001c8f  GPIODirModeSet                
+00000d11  GPIOPadConfigSet              
+00001a35  GPIOPinConfigure              
+00001f89  GPIOPinRead                   
+00001ea1  GPIOPinTypeADC                
+00001eb7  GPIOPinTypeGPIOInput          
+00001e25  GPIOPinTypeGPIOOutput         
+00001ecd  GPIOPinTypeUART               
+00001f8f  GPIOPinWrite                  
+00001865  PLL_Init                      
+20000258  PWM_FREQ                      
+000025c4  Paddle                        
+00001f95  ResetISR                      
+00001e3f  ST7735_Color565               
+000010d1  ST7735_DrawBitmap             
+00001491  ST7735_DrawCharS              
+00001b0d  ST7735_DrawPixel              
+00001681  ST7735_FillRect               
+00001cbd  ST7735_FillScreen             
+00001701  ST7735_InitR                  
+00001dd1  ST7735_SetCursor              
+20000288  StTextColor                   
+20000280  StX                           
+20000284  StY                           
+00000fb9  SysCtlClockGet                
+000012c9  SysCtlClockSet                
+00001f9b  SysCtlDelay                   
+00001bc5  SysCtlPeripheralEnable        
+00001b8d  SysCtlPeripheralReady         
+200002a0  TX_BUFFER                     
+00001f75  UARTCharGet                   
+00001f7f  UARTCharPut                   
+00001a81  UARTConfigSetExpClk           
+00001d91  UARTDisable                   
+00001ee3  UARTEnable                    
+00001b4d  UARTRx                        
+00001ef9  UARTTx                        
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00002840  __TI_CINIT_Base               
+00002850  __TI_CINIT_Limit              
+00002828  __TI_Handler_Table_Base       
+00002834  __TI_Handler_Table_Limit      
+00001ac9  __TI_auto_init_nobinit_nopinit
+000018cd  __TI_decompress_lzss          
+00001f5d  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001ded  __TI_zero_init_nomemset       
+000015e5  __aeabi_memcpy                
+000015e5  __aeabi_memcpy4               
+000015e5  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00001bf9  _c_int00_noargs               
+20000294  _lock                         
+00001ac7  _nop                          
+UNDEFED   _system_post_cinit            
+00001fa1  _system_pre_init              
+20000298  _unlock                       
+00001fa5  abort                         
+00001935  adcSampleY                    
+200002a8  baud                          
+ffffffff  binit                         
+00001ce1  buzzer                        
+00001e71  circle                        
+200002ac  clk                           
+00001d6f  delayWait10ms                 
+0000026d  displayScore                  
+20000210  dx                            
+20000230  dxPaddle1                     
+20000214  dy                            
+20000234  dyPaddle1                     
+00000000  g_pfnVectors                  
+00000ba1  intializePorts                
+20000250  iter                          
+20000254  iterChange                    
+20000290  lastj                         
+20000244  lrDirection                   
+000011d1  main                          
+000015e5  memcpy                        
+00001e89  paddle                        
+20000218  playerOne                     
+2000021c  playerTwo                     
+00001c2d  rand                          
+00001545  resetButton                   
+2000024c  seedCount                     
+00001d05  srand                         
+20000248  udDirection                   
+20000260  uin32ADC0Value                
+0000088d  updateBallLocation            
+000013bd  updatePaddleLocation          
+20000208  xf                            
+20000228  xfPaddle1                     
+20000238  xfPaddle2                     
+20000200  xi                            
+20000220  xiPaddle1                     
+20000240  yRead                         
+2000020c  yf                            
+2000022c  yfPaddle1                     
+2000023c  yfPaddle2                     
+20000204  yi                            
+20000224  yiPaddle1                     
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+0000026d  displayScore                  
+0000088d  updateBallLocation            
+00000ba1  intializePorts                
+00000d11  GPIOPadConfigSet              
+00000fb9  SysCtlClockGet                
+000010d1  ST7735_DrawBitmap             
+000011d1  main                          
+000012c9  SysCtlClockSet                
+000013bd  updatePaddleLocation          
+00001491  ST7735_DrawCharS              
+00001545  resetButton                   
+000015e5  __aeabi_memcpy                
+000015e5  __aeabi_memcpy4               
+000015e5  __aeabi_memcpy8               
+000015e5  memcpy                        
+00001681  ST7735_FillRect               
+00001701  ST7735_InitR                  
+0000177d  ADCSequenceStepConfigure      
+00001865  PLL_Init                      
+000018cd  __TI_decompress_lzss          
+00001935  adcSampleY                    
+000019e5  ADCSequenceConfigure          
+00001a35  GPIOPinConfigure              
+00001a81  UARTConfigSetExpClk           
+00001ac7  _nop                          
+00001ac9  __TI_auto_init_nobinit_nopinit
+00001b0d  ST7735_DrawPixel              
+00001b4d  UARTRx                        
+00001b8d  SysCtlPeripheralReady         
+00001bc5  SysCtlPeripheralEnable        
+00001bf9  _c_int00_noargs               
+00001c2d  rand                          
+00001c61  ADCIntStatus                  
+00001c8f  GPIODirModeSet                
+00001cbd  ST7735_FillScreen             
+00001ce1  buzzer                        
+00001d05  srand                         
+00001d4d  Delay1ms                      
+00001d6f  delayWait10ms                 
+00001d91  UARTDisable                   
+00001db1  ADCSequenceDataGet            
+00001dd1  ST7735_SetCursor              
+00001ded  __TI_zero_init_nomemset       
+00001e25  GPIOPinTypeGPIOOutput         
+00001e3f  ST7735_Color565               
+00001e59  ADCProcessorTrigger           
+00001e71  circle                        
+00001e89  paddle                        
+00001ea1  GPIOPinTypeADC                
+00001eb7  GPIOPinTypeGPIOInput          
+00001ecd  GPIOPinTypeUART               
+00001ee3  UARTEnable                    
+00001ef9  UARTTx                        
+00001f21  FPUEnable                     
+00001f31  FPULazyStackingEnable         
+00001f41  ADCSequenceDisable            
+00001f4f  ADCSequenceEnable             
+00001f5d  __TI_decompress_none          
+00001f6b  ADCIntClear                   
+00001f75  UARTCharGet                   
+00001f7f  UARTCharPut                   
+00001f89  GPIOPinRead                   
+00001f8f  GPIOPinWrite                  
+00001f95  ResetISR                      
+00001f9b  SysCtlDelay                   
+00001fa1  _system_pre_init              
+00001fa5  C$$EXIT                       
+00001fa5  abort                         
+000024a4  Circle_Dia_3                  
+000025c4  Paddle                        
+00002828  __TI_Handler_Table_Base       
+00002834  __TI_Handler_Table_Limit      
+00002840  __TI_CINIT_Base               
+00002850  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+20000200  xi                            
+20000204  yi                            
+20000208  xf                            
+2000020c  yf                            
+20000210  dx                            
+20000214  dy                            
+20000218  playerOne                     
+2000021c  playerTwo                     
+20000220  xiPaddle1                     
+20000224  yiPaddle1                     
+20000228  xfPaddle1                     
+2000022c  yfPaddle1                     
+20000230  dxPaddle1                     
+20000234  dyPaddle1                     
+20000238  xfPaddle2                     
+2000023c  yfPaddle2                     
+20000240  yRead                         
+20000244  lrDirection                   
+20000248  udDirection                   
+2000024c  seedCount                     
+20000250  iter                          
+20000254  iterChange                    
+20000258  PWM_FREQ                      
+2000025c  CPU_FREQ                      
+20000260  uin32ADC0Value                
+20000280  StX                           
+20000284  StY                           
+20000288  StTextColor                   
+20000290  lastj                         
+20000294  _lock                         
+20000298  _unlock                       
+200002a0  TX_BUFFER                     
+200002a8  baud                          
+200002ac  clk                           
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[124 symbols]
